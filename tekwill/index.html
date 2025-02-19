@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+    </style>    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/tailwindcss">
+      @theme {
+        --color-main: #3542FF;
+        --color-sur: #777878;
+      }
+    </style>
+   <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+
+
+  <body class="overflow-x-hidden bg-white dark:bg-[#1c1c1c] ">
+    <div class="fixed z-9 top-0 left-0 right-0 backdrop-blur w-screen h-16 lg:h-20 "></div>
+    <nav class="fixed z-10 top-4 left-4 right-4 lg:top-6 lg:right-32 lg:left-32 xl:left-64 xl:right-64">
+
+        
+        <div class="flex items-center justify-between gap-50 ">
+
+    <div class="flex justify-between gap-10 items-center w-full lg:w-auto">
+            <a href="/index.html"><div class="font-semibold text-xl dark:text-white">CMIEA</div> </a>
+            <div id="burger" class="w-8 lg:hidden "> <img src="assets/burger-alb.svg" class="hidden dark:block" alt="burger"> <img src="assets/burger-negru.svg" class="dark:hidden" alt="burger"></div>
+         <ul class="hidden lg:flex flex gap-10 text-sur dark:text-white/50">
+             <li><a href="/pages/despre.html">Despre noi</a></li>
+             <li><a href="/pages/cursuri.html">Cursuri</a></li>
+             <li><a href="/pages/contact.html">Contacte</a></li>
+         </ul>
+    </div>
+
+         </ul>
+         <div class="font-medium gap-6 hidden lg:flex">
+            <button class="text-sur hover:text-black dark:hover:text-white">Login</button>
+            <button class="p-2 text-main dark:text-white border border-main dark:border-white rounded-xl dark:hover:bg-gray-100/10 hover:bg-black/10">Sign up</button>
+            <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+         </div>
+        </div>
+    </nav>
+
+    <nav id="phone-nav" class="phone-nav hidden fixed z-11 bg-sur h-screen w-screen lg:hidden">
+        <div id="close" class="text-main dark:text-white absolute right-6 top-6 text-3xl">X</div>
+        <div class="h-full w-full text-main bg-white/90 font-bold dark:text-white dark:bg-[#1c1c1c] flex flex-col items-center justify-center text-3xl gap-5">
+            <a href="/pages/despre.html">Despre noi</a>
+            <a href="/pages/cursuri.html">Cursuri</a>
+            <a href="/pages/contact.html">Contacte</a>
+            <button id="theme-toggle2" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                <svg id="theme-toggle-dark-icon2" class="hidden w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon2" class="hidden w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+<div class="overflow-x-hidden opacity-70 dark:opacity-20">
+<div class="main absolute -z-1 top-0 left-0 hidden md:block">
+    <img src="assets/circle.png" class="w-auto circle circle-1 -z-1 absolute" alt="logo">
+    <img src="assets/circle2.png" class="w-auto circle circle-2 -z-1 absolute" alt="logo">
+</div>
+
+
+<div class="main2 absolute -z-1 top-0 left-0 hidden md:block">
+    <img src="assets/circle3.png" class="w-auto circle2 circle2-1 -z-1 absolute" alt="logo">
+    <img src="assets/circle5.png" class="w-auto circle2 circle2-2 -z-1 absolute" alt="logo">
+</div>
+
+
+<div class="main3 absolute -z-1 top-0 left-0 hidden 2xl:block">
+    <img src="assets/circle.png" class="w-auto circle3 circle3-1 -z-1 absolute" alt="logo">
+    <img src="assets/circle2.png" class="w-auto circle3 circle3-2 -z-1 absolute" alt="logo">
+</div>
+</div>
+
+<section class="hero w-screen p-4 text-center flex gap-2 flex-col items-center mx-auto h-[75vh] justify-center relative">
+    <h1 class="max-w-[305px] md:max-w-[450px] text-4xl font-medium md:text-5xl lg:text-6xl dark:text-white"><span class="text-main text-main dark:text-blue-600">Dezvolta-te</span> la orice varsta</h1>
+    <p class="max-w-[305px] md:max-w-[450px] text-sur text-xs lg:text-sm">Descopera cursuri care ti se potrivesc </p>
+    <div class="max-w-[305px] md:max-w-[450px] mt-4 w-[100%] relative">
+        <div class="border border-black/30 dark:border-white text-xs p-2 lg:p-3 rounded-xl flex justify-between bg-white dark:bg-[#1c1c1c]">
+            <input type="text" id="searchInput" class="text-base w-full dark:text-white bg-transparent outline-none" placeholder="Cauta cursuri..">
+        </div>
+        <div id="searchDropdown" class="absolute w-full mt-2 bg-white dark:bg-gray-800 border border-black/30 dark:border-white/50 rounded-xl shadow-lg max-h-[300px] overflow-y-auto z-50 hidden">
+        </div>
+    </div>
+</section>
+
+
+    <section class="p-4  lg:px-32 xl:px-64 flex flex-col items-center justify-center text-center font-medium ">
+        <div class="w-full flex flex-col justify-center items-center py-5 rounded-3xl shadow-[2px_-18px_34px_2px_rgba(0,_0,_0,_0.05)] dark:shadow-[2px_-18px_34px_2px_rgba(255,_255,_255,_0.05)] overflow-x-hidden">
+            <p class="text-black dark:text-white text-xl font-semibold">Suntem <span class="text-main text-main dark:text-blue-600">sustinuti</span> de catre </p>
+            
+            <div class="logos flex gap-32 py-6">
+                <div class="logo_items">
+                <img src="assets/carusel1.png">
+                <img src="assets/carusel2.png">
+                <img src="assets/carusel3.png">
+                <img src="assets/carusel1.png">
+                <img src="assets/carusel2.png">
+                <img src="assets/carusel3.png">
+                <img src="assets/carusel1.png">
+                <img src="assets/carusel2.png">
+                <img src="assets/carusel3.png">
+                <img src="assets/carusel1.png">
+                <img src="assets/carusel2.png">
+                <img src="assets/carusel3.png">
+                <img src="assets/carusel1.png">
+                <img src="assets/carusel2.png">
+                <img src="assets/carusel3.png">
+
+                
+                </div>
+                </div>
+
+        </div>
+    </section>
+
+    <section class="p-4 lg:px-32 xl:px-64 mt-12 dark:text-white">
+        <div class="text-center flex flex-col gap-4 items-center lg:hidden">
+        <p class="font-medium text-xl ">Un pas catre <span class="text-main text-main dark:text-blue-600">viitorul</span> tau incepe aici</p>
+        <img src="assets/image-more.png" class="rounded-xl " alt="">
+        <p class="text-sur text-sm">Un Pas Mai Aproape de Viitorul Tău.
+            Educația Corectă, Oportunitățile Potrivite.</p>
+        <button class="bg-main text-white px-5 py-2 rounded-xl w-[200px]">Afla mai multe</button>
+        </div>
+
+        <div class="hidden lg:flex text-center gap-4 items-center justify-between items-start">
+            <div class="flex flex-col justify-between text-start h-full max-w-[450px] gap-4">
+                <p class="font-semibold text-5xl">Un pas catre <span class="text-main">viitorul</span> tau incepe aici</p>
+                <p class="text-sur text-xl">Un Pas Mai Aproape de Viitorul Tău.
+                    Educația Corectă, Oportunitățile Potrivite.</p>
+                <button class="bg-main text-lg text-white px-5 py-2 rounded-xl w-[200px] mt-6">Afla mai multe</button>
+                </div>
+                <img src="assets/image-more.png" class="rounded-xl w-[400px] " alt="imagine-principala">
+            </div>
+        
+        
+        
+    </section>
+
+<div class="px-4 lg:px-32 xl:px-64 flex flex-col gap-4 md:items-start items-center mt-32 dark:text-white"> 
+    <div>
+        <p class="text-3xl font-semibold">Vezi <span class="text-main">cursurile</span> noastre de formare</p>
+    </div>
+    <div class="mb-5 md:mb-3 p-4 border border-black/30 dark:border-white/50 rounded-lg w-full">
+        <div class="flex flex-col md:flex-row gap-4 justify-between">
+            <div class="flex items-center gap-2 justify-between">
+                <label class="font-medium">Categorie:</label>
+                <select id="categoryFilter" class="p-2 border border-black/30 dark:border-white/50 rounded-lg">
+                    <option value="">Toate categoriile</option>
+                    <option value="Începător">Începător</option>
+                    <option value="Intermediar">Intermediar</option>
+                    <option value="Avansat">Avansat</option>
+                </select>
+            </div>
+            
+            <div class="flex items-center gap-2 justify-between">
+                <label class="font-medium">Durată:</label>
+                <select id="durationFilter" class="p-2 border border-black/30 dark:border-white/50 rounded-lg">
+                    <option value="">Toate duratele</option>
+                    <option value="3 Luni">3 Luni</option>
+                    <option value="2 Luni">2 Luni</option>
+                    <option value="1 Lună">1 Lună</option>`
+                </select>
+            </div>
+            
+            <div class="flex items-center gap-2 justify-between">
+                <label class="font-medium">Limbă:</label>
+                <select id="languageFilter" class="p-2 border border-black/30 dark:border-white/50 rounded-lg">
+                    <option value="">Toate limbile</option>
+                    <option value="Română">Română</option>
+                    <option value="Engleză">Engleză</option>
+                    <option value="Rusă">Rusă</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+    <section id="courses-container" class=" px-4 lg:px-32 xl:px-64 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-3 dark:text-white">
+        
+
+          
+    </section>
+    <div class="pagination-container mb-32 dark:text-white" id="pagination-container">   
+    </div>
+    
+    <section class="m-4 lg:mx-32 xl:mx-64 flex flex-col lg:flex-row items-center gap-10 overflow-x-hidden " >
+        <div class="flex flex-col lg:self-start lg:items-start lg:pr-12">
+            <p class="text-4xl lg:text-6xl font-medium py-3 dark:text-white">Recenzii</p>
+            <div class="flex justify-center items-center gap-4">
+                <button id="slider-button-left" class="swiper-button-p group !p-2 flex justify-center items-center border border-solid border-sur !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-black/10 dark:hover:bg-white/10" data-carousel-prev><img src="assets/caret-left.svg" class="dark:hidden"><img src="assets/caret-left (1).svg" class="hidden dark:block"></button>
+                <button id="slider-button-right" class="swiper-button-n group !p-2 flex justify-center items-center border border-solid border-sur !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-black/10 dark:hover:bg-white/10" data-carousel-next><img src="assets/caret-right.svg" class="dark:hidden"><img src="assets/caret-right (1).svg" class="hidden dark:block"></button>
+            </div>
+        </div>
+        <div class="w-full relative">
+            <div class="swiper multiple-slide-carousel swiper-container relative">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide h-[60vh]">
+                        <div class="h-[60vh] flex flex-col items-start justify-between rounded-4xl p-10 border border-black/30 dark:border-white/50 dark:text-white ">
+                            <img src="assets/andrei.jpg" alt="uk" class="w-30 rounded-full">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-2xl md:text-4xl text-semibold">„Cursurile sunt excelente, profesori dedicați. Am învățat enorm. Recomand!”</p>
+                                <p class="text-sur mt-6">Andrei M.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-[60vh]">
+                        <div class="h-[60vh] flex flex-col items-start justify-between rounded-4xl p-10 border border-black/30 dark:border-white/50 dark:text-white">
+                            <img src="assets/elena.jpg" alt="uk" class="w-30 rounded-full">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-2xl md:text-4xl text-semibold">„O experiență grozavă! Lecții utile, practice și ușor de înțeles. Mulțumesc!”
+                                </p>
+                                <p class="text-sur mt-6">Elena R.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-[60vh]">
+                        <div class="h-[60vh] flex flex-col items-start justify-between rounded-4xl p-10 border border-black/30 dark:border-white/50 dark:text-white">
+                            <img src="assets/victor.jpeg" alt="uk" class="w-30 rounded-full">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-2xl md:text-4xl text-semibold">„CMIEA oferă instruire de calitate! Atmosferă plăcută și suport continuu.”                                </p>
+                                <p class="text-sur mt-6">Victor S.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-[60vh]">
+                        <div class="h-[60vh] flex flex-col items-start justify-between rounded-4xl p-10 border border-black/30 dark:border-white/50 dark:text-white">
+                            <img src="assets/ioana.jpeg" alt="uk" class="w-30 rounded-full">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-2xl md:text-4xl text-semibold">„Profesioniști adevărați! Am dobândit cunoștințe valoroase.”
+                                </p>
+                                <p class="text-sur mt-6">Ioana D.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:block absolute right-0 top-0 h-full w-[50%] pointer-events-none z-5
+            bg-gradient-to-l from-white via-white/90 via-white/80 via-white/70 via-white/60
+            via-white/50 via-white/40 via-white/30 via-white/20 to-transparent
+            dark:from-neutral-900 dark:via-neutral-900/90 dark:via-neutral-900/80 dark:via-neutral-900/70 
+            dark:via-neutral-900/60 dark:via-neutral-900/50 dark:via-neutral-900/40 
+            dark:via-neutral-900/30 dark:via-neutral-900/20 dark:to-transparent">
+            </div>        
+    </section>
+    
+
+    <footer class="p-4 lg:px-32 xl:px-64 mt-24 dark:text-white bg-main rounded-t-4xl text-white">
+        <div class="flex flex-col justify-between gap-10 items-start lg:flex-row py-10">
+            <div class="flex flex-col gap-2 max-w-[350px]">
+                <a href="index.html"><p class="text-5xl font-bold">CMIEA</p></a>
+                <p>„Sprijinim educația și dezvoltarea adulților prin cursuri gratuite și programe dedicate.”</p>
+                <div class="flex gap-5 mt-2">
+                    <a href="https://www.facebook.com/profile.php?id=100091913902284"><img class="w-7" src="assets/x.png" alt="x"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100091913902284"><img class="w-7" src="assets/instagram.png" alt="ig"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100091913902284"><img class="w-7" src="assets/facebook.png" alt="fb"></a>
+                </div>
+            </div>
+
+            <div class="flex gap-10 flex-col lg:flex-row">
+                <ul class="flex flex-col gap-2">
+                    <li><p class="font-bold">Platforma</p></li>
+                    <li><a href="/pages/cursuri.html">Cursuri oferite</a></li>
+                    <li><a href="">Inscriere la cursuri</a></li>
+                    <li><a href="#reviews">Evaluare si feedback</a></li>
+                </ul>
+                <ul class="flex flex-col gap-2">
+                    <li><p class="font-bold" >Despre noi</p></li>
+                    <li><a href="/pages/despre.html">Misiunea noastra</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+    <hr>
+
+    <div class="flex flex-col lg:flex-row gap-10 justify-between py-5">
+        <p>&copy; 2023 CMIEA</p>
+        <div class="flex flex-col lg:flex-row text-sm gap-2 lg:gap-8">
+            <a href="https://www.chisinau.md/ro/termeni-si-conditii-20914_271827.html">Termeni și Condiții </a>
+            <a href="https://www.chisinau.md/ro/politica-de-confidentialitate-20914_271825.html">Politica de Confidențialitate</a>
+            <a href="https://www.cloudflare.com/learning/privacy/what-are-cookies/">Politica privind Cookies</a>
+        </div>
+    </div>
+    </footer>
+  
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
