@@ -9,7 +9,7 @@ async function renderCourseDetails() {
         }
 
         
-        const response = await fetch('../cursuri.json');
+        const response = await fetch('/cursuri.json');
         const courses = await response.json();
         
         
