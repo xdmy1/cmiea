@@ -31,18 +31,18 @@ async function renderCourseDetails() {
             <p class="font-semibold text-4xl">${course.name}</p>
           </div>
           <div class="flex flex-wrap max-w-[400px] gap-2">
-            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="/assets/limbaAlb.png" alt=""><p class="text-white">${course.limba}</p> </div>
-            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="/assets/timpAlb.png" alt=""><p class="text-white">${course.ore} Ore</p> </div>
-            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="/assets/calendarAlb.png" alt=""><p class="text-white">${course.durata}</p> </div>
-            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="/assets/experientaAlb.png" alt=""><p class="text-white">${course.categorie}</p> </div>
-            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="/assets/locuriAlb.png" alt=""><p class="text-white">Locuri disponibile: ${course.locuri}</p> </div>
+            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="../assets/limbaAlb.png" alt=""><p class="text-white">${course.limba}</p> </div>
+            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="../assets/timpAlb.png" alt=""><p class="text-white">${course.ore} Ore</p> </div>
+            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="../assets/calendarAlb.png" alt=""><p class="text-white">${course.durata}</p> </div>
+            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="../assets/experientaAlb.png" alt=""><p class="text-white">${course.categorie}</p> </div>
+            <div class="eticheta bg-[#3542FF] flex gap-1 items-center"><img src="../assets/locuriAlb.png" alt=""><p class="text-white">Locuri disponibile: ${course.locuri}</p> </div>
           </div>
           <div class="max-w-[400px] mt-6 flex flex-col gap-2">
             <p class="font-semibold text-3xl">Ce o sa inveti?</p>
             <div class="flex flex-col gap-3 text-[18px]">
-             <div class="flex gap-1"> <img src="/assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti1}</p></div>
-             <div class="flex gap-1"> <img src="/assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti2}</p></div>
-             <div class="flex gap-1"> <img src="/assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti3}</p></div>
+             <div class="flex gap-1"> <img src="../assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti1}</p></div>
+             <div class="flex gap-1"> <img src="../assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti2}</p></div>
+             <div class="flex gap-1"> <img src="../assets/checkmark.png" class="w-6 h-6" alt=""><p>${course.inveti3}</p></div>
             </div>
           </div>
         </div>
