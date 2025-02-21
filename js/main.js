@@ -269,7 +269,7 @@ function handleSearch(event) {
     
     if (filteredCourses.length > 0) {
         searchDropdown.innerHTML = filteredCourses.map(course => `
-            <a href="cmiea/pages/curs.html?id=${course.id}" class="block">
+            <a href="/pages/curs.html?id=${course.id}" class="block">
                 <div class="p-4 hover:bg-black/10 dark:hover:bg-gray-100/10 cursor-pointer">
                     <div class="flex items-center gap-2">
                         <img src="${course.image}" class="w-[30px] h-[30px]" alt="Course">
